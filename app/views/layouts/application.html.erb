@@ -11,7 +11,11 @@
 
   <body>
     <div id="header">
-      <%= link_to 'ログイン', user_index_path %>
+      <% if session[:login_uid] %>
+          <%= link_to 'ログアウト', user_index_path %>
+      <% else %>
+          <%= link_to 'ログイン', user_index_path %>
+      <% end %>
     </div>
     <div id="content">
       <%= yield %>

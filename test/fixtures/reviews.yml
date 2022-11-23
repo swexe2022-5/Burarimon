@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyString
+  time: 2022-11-23 06:39:17
+  user_id: 1
+  attraction_id: 1
+
+two:
+  text: MyString
+  time: 2022-11-23 06:39:17
+  user_id: 1
+  attraction_id: 1

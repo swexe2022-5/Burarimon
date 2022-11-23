@@ -1,0 +1,2 @@
+class AttractionController < ApplicationController
+end

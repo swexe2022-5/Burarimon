@@ -1,0 +1,2 @@
+class AttractionPicture < ApplicationRecord
+end

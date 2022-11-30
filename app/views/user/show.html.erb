@@ -1,0 +1,9 @@
+<%= "画像いれろ" %>
+<%= @user.name %><br>
+<%= @user.profile %><br>
+<% if session[:login_uid] == @user.name%>
+    <%= link_to "戻る", root_path %>
+    <%= link_to "プロフィール編集", edit_user_path(@user.name) %>
+<% else %>
+    <%= link_to "戻る", :back %>
+<% end %>

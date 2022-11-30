@@ -1,0 +1,20 @@
+<%= form_for @user , url: {action: :update} do |f| %>
+    <%= f.label :name, 'ユーザー名' %>
+    <%= f.text_field :name %>
+    <p>
+    <%= f.label :profile, 'プロフィール文' %>
+    <%= f.text_area :profile %>
+    </p>
+    <p>
+    <%= f.label :file, 'アイコン' %>
+　　<%= f.file_field :file %>
+    </p>
+    <p>
+    <%= f.label :profile, 'ユーザー' %>
+    <%= f.radio_button :owner, :false %>
+    <%= f.label :owner, "一般ユーザー", {value: false} %>
+  　<%= f.radio_button :owner, :true %>
+    <%= f.label :owner, "オーナー", {value: false} %>
+    </p>
+    <%= f.submit '決定' %>
+<% end %>

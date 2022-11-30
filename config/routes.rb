@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'attraction#index'
+  root 'attraction#show'
   resources :attraction
   resources :user
   resources :review, only: [:new, :create, :destroy]

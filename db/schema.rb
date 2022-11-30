@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2022_11_23_064039) do
     t.string "text"
     t.string "url"
     t.string "genre"
-    t.datetime "open_time"
+    t.string "open_time"
     t.string "contact"
     t.integer "user_id"
     t.datetime "time"

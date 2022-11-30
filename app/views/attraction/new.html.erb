@@ -1,0 +1,39 @@
+<%= form_for @user, url: {action: :create } do |f| %>
+    <p>
+        <%= f.label :name, '名称' %>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.label :text, '紹介文' %>
+        <%= f.text_area :text %>
+    </p>
+    
+    <%#画像%>
+    
+    <p>
+        <%#= f.label :genre, 'ジャンル' %>
+        <%#= f.text_field :genre%>
+    </p>
+    <p>
+        <%#= f.label :prefecture, '都道府県' %>
+        <%#= f.password_field :password %></p>
+    <p>
+    <p>
+        <%= f.label :address, '住所' %>
+        <%= f.text_field :address %>
+    </p>
+    <p>
+        <%= f.label :open_time, '営業日時' %>
+        <%= f.text_field :open_time %>
+    </p>
+    <p>
+        <%= f.label :url, 'URL' %>
+        <%= f.text_field :url %>
+    </p>
+    <p>
+        <%= f.label :url, 'お問い合わせ先' %>
+        <%= f.text_field :url %>
+    </p>
+    <%= f.submit '投稿' %>
+    
+<% end %>

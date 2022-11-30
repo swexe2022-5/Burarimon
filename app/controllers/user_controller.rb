@@ -34,4 +34,23 @@ class UserController < ApplicationController
             redirect_to user_index_path
         end
     end
+    
+    def show
+        @user = User.find_by(name: params[:id])
+    end
+
+    def edit
+        @user = User.find_by(name: params[:id])
+    end
+    
+    def update
+        user = User.find_by(name: params[:id])
+        if params[:user][:file]
+            user.update(name: params[:user][:name], profile: params[:user][:profile], icon: params[:user][:file].read, owner: params[:user][:owner])
+        else
+            user.update(name: params[:user][:name], profile: params[:user][:profile], owner: params[:user][:owner])
+        end
+        session[:login_uid] = params[:user][:name]
+        redirect_to user_path(user.name)
+    end
 end

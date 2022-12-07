@@ -1,4 +1,4 @@
-<%= form_for @attraction, url: {action: :create } do |f| %>
+<%= form_for @attraction, url: {action: :update } do |f| %>
     <p>
         <%= f.label :name, '名称' %>
         <%= f.text_field :name %>
@@ -50,6 +50,6 @@
         <%= f.label :contact, 'お問い合わせ先' %>
         <%= f.text_field :contact %>
     </p>
-    <%= f.submit '投稿' %>
+    <%= f.submit '編集' %>
     
 <% end %>

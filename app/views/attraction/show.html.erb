@@ -1,0 +1,7 @@
+<%= レビュー %>
+<% @review.each do |review| %>
+    <%= アイコン君 %>
+    <%= review.User.name %>
+    <%= review.text %>
+    <%= review.time %>
+<%= link_to "レビューを投稿する", new_review_path %>

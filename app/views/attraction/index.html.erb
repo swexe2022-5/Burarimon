@@ -3,6 +3,7 @@
 
 <% @attractions.each do |item| %>
 <p>
-    <%= item.name%>
+    <%= item.name %>
+    <%= link_to '投稿', attraction_path(item.id) %>
 </p>
 <% end %>

@@ -1,7 +1,9 @@
-<%= レビュー %>
+<%= "レビュー" %><br>
 <% @review.each do |review| %>
-    <%= アイコン君 %>
-    <%= review.User.name %>
+    <%= "アイコン君" %>
+    <%= User.find(review.user_id).name %>
     <%= review.text %>
     <%= review.time %>
-<%= link_to "レビューを投稿する", new_review_path %>
+    <br>
+<% end %>
+<%= link_to "レビューを投稿する", new_review_path(attraction_id:  @attraction.id, user_id: User.find_by(name: session[:login_uid]).id) %>

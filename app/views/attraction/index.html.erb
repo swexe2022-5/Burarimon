@@ -4,6 +4,6 @@
 <% @attractions.each do |item| %>
 <p>
     <%= item.name%>
-    <%= link_to "編集", edit_attraction_path(item.id) %>
+    <%= link_to "しょう", attraction_path(item.id) %>
 </p>
 <% end %>

@@ -21,7 +21,7 @@ class AttractionController < ApplicationController
     end
     
     def show
-        #@attraction = Attraction.find(params[:id])
+        @attraction = Attraction.find(params[:id])
         @review = Review.find_by(attraction_id: params[:id])
     end
     

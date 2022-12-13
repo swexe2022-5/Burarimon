@@ -1,3 +1,43 @@
+<p>
+    <%= @attraction.name %>
+</p>
+<p>
+    <%#= アイコン %>
+    <%#= ユーザー名 %>
+    <%= @attraction.time %>
+</P>
+<p>
+    <%= @attraction.prefecture %>　　
+    <% genres = @attraction.genre %>
+    <% tmp = genres.split('"').each_slice(2).map(&:last) %>
+    <% tmp.pop %>
+    <% tmp.each do |genre| %>
+        <%= genre %>
+    <% end %>
+</P>
+<p>
+    <%= @attraction.text %>
+</P>
+<p>
+    <%#画像関係の処理%>
+</P>
+<p>
+    <%= @attraction.address %>
+</P>
+<p>
+    <%= @attraction.open_time %>
+</P>
+<p>
+    <%= @attraction.url %>
+</P>
+<p>
+    <%= @attraction.contact %>
+</P>
+
+<p>
+<%= link_to "編集", edit_attraction_path(@attraction.id) %>
+</P>
+
 <%= "レビュー" %><br>
 <% @review.each do |review| %>
     <%= "アイコン君" %>

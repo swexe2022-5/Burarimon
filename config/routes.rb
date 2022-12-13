@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'attraction#index'
+  get "attraction/search"
   resources :attraction
   resources :user
   resources :review, only: [:new, :create, :destroy]

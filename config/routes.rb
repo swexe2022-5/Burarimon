@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :user
   resources :review, only: [:new, :create, :destroy]
   post 'user/login'
+  get 'get_image/:id', to: 'user#get_image'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

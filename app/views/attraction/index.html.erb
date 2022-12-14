@@ -1,4 +1,10 @@
-<%= link_to '投稿', new_attraction_path %>
+<% if session[:login_uid] %>
+    <% if User.find_by(name: session[:login_uid]).owner %>
+        <%= link_to '投稿', new_attraction_path(user_id: User.find_by(name: session[:login_uid]).id) %>
+    <% end %>
+<% end %>
+
+
 <%= link_to '検索・並び替え', '/attraction/search' %>
 
 <% @attractions.each do |item| %>

@@ -11,8 +11,8 @@ class UserController < ApplicationController
     end
     
     def create
-        if params[:user][:file]
-            @user = User.new(name: params[:user][:name], pass: params[:user][:password], profile: params[:user][:profile], icon: params[:user][:file].read, owner: params[:user][:owner])
+        if params[:user][:icon]
+            @user = User.new(name: params[:user][:name], pass: params[:user][:password], profile: params[:user][:profile], icon: params[:user][:icon].read, owner: params[:user][:owner])
         else
             @user = User.new(name: params[:user][:name], pass: params[:user][:password], profile: params[:user][:profile], owner: params[:user][:owner])
         end
@@ -45,12 +45,18 @@ class UserController < ApplicationController
     
     def update
         user = User.find_by(name: params[:id])
-        if params[:user][:file]
-            user.update(name: params[:user][:name], profile: params[:user][:profile], icon: params[:user][:file].read, owner: params[:user][:owner])
+        if params[:user][:icon]
+            user.update(name: params[:user][:name], profile: params[:user][:profile], icon: params[:user][:icon].read, owner: params[:user][:owner])
         else
+            
             user.update(name: params[:user][:name], profile: params[:user][:profile], owner: params[:user][:owner])
         end
         session[:login_uid] = params[:user][:name]
         redirect_to user_path(user.name)
+    end
+    
+    def get_image
+        user = User.find(params[:id])
+        send_data user.icon, disposition: :inline, type: 'image/png'
     end
 end

@@ -1,6 +1,10 @@
 class AttractionController < ApplicationController
     def index
-        @attractions = Attraction.all
+        if params[:search]
+            @attractions = params[search]
+        else
+            @attractions = Attraction.all
+        end
     end
     
     def new
@@ -46,5 +50,10 @@ class AttractionController < ApplicationController
         @attraction = Attraction.find(params[:id])
         @attraction.destroy
         redirect_to root_path
+    end
+    
+    def searchdb
+        @attractions = Attraction.all(id: "DESC")
+        redirect_to root_path(search: @attractions)
     end
 end

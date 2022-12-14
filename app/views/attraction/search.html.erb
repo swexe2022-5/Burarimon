@@ -53,14 +53,14 @@
     <br>
     ジャンル<br>
     <% @genres.each do |i| %>
-        <%= check_box "EClist", i, {} %><%= i %>
+        <%= check_box "genres", i, {multiple: true, checked: false} %><%= i %>
     <% end %>
     <br>
     並べ替え<br>
-    <select name="prefecture">
-        <option value="登録が新しい順">登録が新しい順</option>
-        <option value="登録が古い順">登録が古い順</option>
-        <option value="五十音順">五十音順</option>
+    <select name="order">
+        <option value="ASC">登録が新しい順</option>
+        <option value="DESC">登録が古い順</option>
+        <option value="name">五十音順</option>
     </select>
     <br><br>
     <%= submit_tag "商品を検索"%>

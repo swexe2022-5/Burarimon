@@ -1,7 +1,11 @@
 class AttractionController < ApplicationController
     def index
-        if params[:search]
-            @attractions = params[search]
+        if params[:order]
+            if params[:order] == "name"
+                @attractions = Attraction.all.order(name: "ASC")
+            else
+                @attractions = Attraction.all.order(id: params[:order])
+            end
         else
             @attractions = Attraction.all
         end
@@ -52,7 +56,9 @@ class AttractionController < ApplicationController
     end
     
     def searchdb
-        @attractions = Attraction.all(id: "DESC")
-        redirect_to root_path(search: @attractions)
+        params[:prefecture]
+        params[:genres]
+        puts params[:genres]
+        redirect_to root_path(order: params[:order], prefecture: params[:prefecture])
     end
 end

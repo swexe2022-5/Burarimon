@@ -1,13 +1,55 @@
 class AttractionController < ApplicationController
+    def genre_p(list)
+        if not params[:genres]
+            list.each do |item|
+                @attractions << item
+            end
+            return
+        end
+        list.each do |item|
+            genres = []
+            tmp = item.genre.split('"').each_slice(2).map(&:last)
+            tmp.pop
+            tmp.each do |genre|
+                genres << genre
+            end
+            genre_num = 0
+            genres.each do |genre1|
+                params[:genres].each do |genre2|
+                    if genre1 == genre2
+                        genre_num += 1
+                    end
+                end
+            end
+            if genre_num == params[:genres].length
+                @attractions << item
+            end
+        end
+    end
+    
     def index
-        if params[:order]
+        if params[:prefecture]
+            @attractions = []
             if params[:order] == "name"
-                @attractions = Attraction.all.order(name: "ASC")
+                @attractions_list = Attraction.all.order(name: "ASC").where(prefecture: params[:prefecture])
+                genre_p(@attractions_list)
             else
-                @attractions = Attraction.all.order(id: params[:order])
+                @attractions_list = Attraction.all.order(id: params[:order]).where(prefecture: params[:prefecture])
+                genre_p(@attractions_list)
             end
         else
-            @attractions = Attraction.all
+            if params[:order]
+                @attractions = []
+                if params[:order] == "name"
+                    @attractions_list = Attraction.all.order(name: "ASC")
+                    genre_p(@attractions_list)
+                else
+                    @attractions_list = Attraction.all.order(id: params[:order])
+                    genre_p(@attractions_list)
+                end
+            else
+                @attractions = Attraction.all
+            end
         end
     end
     
@@ -56,9 +98,16 @@ class AttractionController < ApplicationController
     end
     
     def searchdb
-        params[:prefecture]
-        params[:genres]
-        puts params[:genres]
-        redirect_to root_path(order: params[:order], prefecture: params[:prefecture])
+        if params[:prefecture] == "全国"
+            params[:prefecture] = nil
+        end
+        @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物"]
+        genres_list = []
+        @genres.each do |genre|
+            if params[:genres][genre] == ["0", "1"]
+                genres_list << genre
+            end
+        end
+        redirect_to root_path(order: params[:order], prefecture: params[:prefecture], genres: genres_list)
     end
 end

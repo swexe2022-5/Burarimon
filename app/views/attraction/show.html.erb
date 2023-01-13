@@ -19,7 +19,12 @@
     <%= @attraction.text %>
 </P>
 <p>
-    <%#画像関係の処理%>
+    <%= image_tag "/get_picture1/#{@attraction.id}" %>
+    <%= image_tag "/get_picture2/#{@attraction.id}" %>
+    <%= image_tag "/get_picture3/#{@attraction.id}" %>
+    <%= image_tag "/get_picture4/#{@attraction.id}" %>
+    <%= image_tag "/get_picture5/#{@attraction.id}" %>
+    <%= image_tag "/get_picture6/#{@attraction.id}" %>
 </P>
 <p>
     <%= @attraction.address %>

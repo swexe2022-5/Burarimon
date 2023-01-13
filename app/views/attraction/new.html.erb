@@ -7,9 +7,6 @@
         <%= f.label :text, '紹介文' %><br>
         <%= f.text_area :text %>
     </p>
-    
-    <%#画像%>
-    
     <p>
         ジャンル<br>
         <%= f.check_box :genre, {multiple: true, checked: false}, @genres[0], nil %>
@@ -27,6 +24,31 @@
         <%= f.check_box :genre, {multiple: true, checked: false}, @genres[6], nil %>
         <%= f.label :genre, "生き物" %>
     </p>
+    <p>
+    <%= f.label :picture1, '画像1' %>
+　　<%= f.file_field :picture1 %>
+    </p>
+    <p>
+    <%= f.label :picture2, '画像2' %>
+　　<%= f.file_field :picture2 %>
+    </p>
+    <p>
+    <%= f.label :picture3, '画像3' %>
+　　<%= f.file_field :picture3 %>
+    </p>
+    <p>
+    <%= f.label :picture4, '画像4' %>
+　　<%= f.file_field :picture4 %>
+    </p>
+    <p>
+    <%= f.label :picture5, '画像5' %>
+　　<%= f.file_field :picture5 %>
+    </p>
+    <p>
+    <%= f.label :picture6, '画像6' %>
+　　<%= f.file_field :picture6 %>
+    </p>
+    
     <p>
         都道府県
         <%= f.select :prefecture,  ['北海道', ' 青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', 

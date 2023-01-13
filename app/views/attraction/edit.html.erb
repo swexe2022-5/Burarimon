@@ -8,8 +8,6 @@
         <%= f.text_area :text %>
     </p>
     
-    <%#画像%>
-    
     <p>
         ジャンル<br>
         <%= f.check_box :genre, {multiple: true, checked: false}, @genres[0], nil %>
@@ -25,8 +23,34 @@
         <%= f.check_box :genre, {multiple: true, checked: false}, @genres[5], nil %>
         <%= f.label :genre, "温泉" %>
         <%= f.check_box :genre, {multiple: true, checked: false}, @genres[6], nil %>
-        <%= f.label :genre, "生き物" %>
+       <%= f.label :genre, "生き物" %>
     </p>
+    <p>
+    <%= f.label :pcture1, '画像1' %>
+　　<%= f.file_field :pcture1 %>
+    </p>
+    <p>
+    <%= f.label :pcture2, '画像2' %>
+　　<%= f.file_field :pcture2 %>
+    </p>
+    <p>
+    <%= f.label :pcture3, '画像3' %>
+　　<%= f.file_field :pcture3 %>
+    </p>
+    <p>
+    <%= f.label :pcture4, '画像4' %>
+　　<%= f.file_field :pcture4 %>
+    </p>
+    
+    <p>
+    <%= f.label :pcture5, '画像5' %>
+　　<%= f.file_field :pcture5 %>
+    </p>
+    <p>
+    <%= f.label :pcture6, '画像6' %>
+　　<%= f.file_field :pcture6 %>
+    </p>
+    
     <p>
         都道府県
         <%= f.select :prefecture,  ['北海道', ' 青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', 

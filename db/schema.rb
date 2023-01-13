@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_23_064039) do
-
-  create_table "attraction_pictures", force: :cascade do |t|
-    t.integer "attraction_id"
-    t.binary "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2022_11_23_063917) do
 
   create_table "attractions", force: :cascade do |t|
     t.string "name"

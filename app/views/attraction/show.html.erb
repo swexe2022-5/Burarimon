@@ -22,26 +22,23 @@
 <p>
     <%= @attraction.text %>
 </P>
-<p>  
-    <% if not @attraction.picture1.nil? %>
-        <%= image_tag "/get_picture1/#{@attraction.id}" %>
-    <% end %>
-    <% if not @attraction.picture2.nil? %>
-        <%= image_tag "/get_picture2/#{@attraction.id}" %>
-    <% end %>
-    <% if not @attraction.picture3.nil? %>
-        <%= image_tag "/get_picture3/#{@attraction.id}" %>
-    <% end %>
-    <% if not @attraction.picture4.nil? %>
-        <%= image_tag "/get_picture4/#{@attraction.id}" %>
-    <% end %>
-    <% if not @attraction.picture5.nil? %>
-        <%= image_tag "/get_picture5/#{@attraction.id}" %>
-    <% end %>
-    <% if not @attraction.picture6.nil? %>
-        <%= image_tag "/get_picture6/#{@attraction.id}" %>
-    <% end %>
-</P>
+<div id="photos">
+        <% if not @attraction.picture1.nil? %>
+            <%= image_tag "/get_picture1/#{@attraction.id}", class: "photo" %>
+        <% end %>
+        <% if not @attraction.picture2.nil? %>
+            <%= image_tag "/get_picture2/#{@attraction.id}", class: "photo" %>
+        <% end %><% if not @attraction.picture3.nil? %>
+            <%= image_tag "/get_picture3/#{@attraction.id}", class: "photo" %>
+        <% end %> <% if not @attraction.picture4.nil? %>
+            <%= image_tag "/get_picture4/#{@attraction.id}", class: "photo" %>
+        <% end %><% if not @attraction.picture5.nil? %>
+            <%= image_tag "/get_picture5/#{@attraction.id}", class: "photo" %>
+        <% end %><% if not @attraction.picture6.nil? %>
+            <%= image_tag "/get_picture6/#{@attraction.id}", class: "photo" %>
+        <% end %>
+    </div>
+</div>
 <p>
     <%= @attraction.address %>
 </P>

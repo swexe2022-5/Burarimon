@@ -24,12 +24,13 @@
         <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("生き物")}, @genres[6], nil %>
         <%= f.label :genre, "生き物" %>
     </p>
+    <div id="photo_edit">
     <p>
         <%= f.label :picture1, '画像1' %>
     　　<%= f.file_field :picture1 %>
     　　<% if not @attraction.picture1.nil? %>
         　　<br>既に画像があります。<br>
-            <%= image_tag "/get_picture1/#{@attraction.id}" %>
+            <%= image_tag "/get_picture1/#{@attraction.id}", class: "photo" %>
         <% end %>
     </p>
     <p>
@@ -37,7 +38,7 @@
     　　<%= f.file_field :picture2 %>
     　　<% if not @attraction.picture2.nil? %>
         　　<br>既に画像があります。<br>
-            <%= image_tag "/get_picture2/#{@attraction.id}" %>
+            <%= image_tag "/get_picture2/#{@attraction.id}", class: "photo" %>
         <% end %>
     </p>
     <p>
@@ -45,7 +46,7 @@
     　　<%= f.file_field :picture3 %>
     　　<% if not @attraction.picture3.nil? %>
         　　<br>既に画像があります。<br>
-            <%= image_tag "/get_picture3/#{@attraction.id}" %>
+            <%= image_tag "/get_picture3/#{@attraction.id}", class: "photo" %>
         <% end %>
     </p>
     <p>
@@ -53,7 +54,7 @@
     　　<%= f.file_field :picture4 %>
     　　<% if not @attraction.picture4.nil? %>
         　　<br>既に画像があります。<br>
-            <%= image_tag "/get_picture4/#{@attraction.id}" %>
+            <%= image_tag "/get_picture4/#{@attraction.id}", class: "photo" %>
         <% end %>
     </p>
     <p>
@@ -61,7 +62,7 @@
     　　<%= f.file_field :picture5 %>
     　　<% if not @attraction.picture5.nil? %>
         　　<br>既に画像があります。<br>
-            <%= image_tag "/get_picture5/#{@attraction.id}" %>
+            <%= image_tag "/get_picture5/#{@attraction.id}", class: "photo" %>
         <% end %>
     </p>
     <p>
@@ -69,10 +70,10 @@
     　　<%= f.file_field :picture6 %>
     　　<% if not @attraction.picture6.nil? %>
         　　<br>既に画像があります。<br>
-            <%= image_tag "/get_picture6/#{@attraction.id}" %>
+            <%= image_tag "/get_picture6/#{@attraction.id}", class: "photo" %>
         <% end %>
     </p>
-    
+    </div>
     <p>
         都道府県
         <%= f.select :prefecture,  ['北海道', ' 青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', 

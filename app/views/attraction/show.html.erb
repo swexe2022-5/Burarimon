@@ -11,7 +11,8 @@
           <% end %>
         <%= contributor.name %>さん
     </div>
-    <%= @attraction.time %>
+    <br>
+    <%= @attraction.time.strftime('%Y-%m-%d') %>
 </P>
 <p>
     
@@ -72,14 +73,18 @@
     <div>
         <% if viewer.icon.nil? %>
             <%= image_tag 'アイコン.jpg' %>
-          <% else %>
+        <% else %>
             <%= image_tag "/get_image/#{viewer.id}", class: "icon" %>
-          <% end %>
+        <% end %>
         <%= viewer.name %>さん
     </div>
     <%= review.text %>
-    <%= review.time %>
+    <%= review.time.strftime('%Y-%m-%d') %>
     <br>
 <% end %>
 
-<%= link_to "レビューを投稿する", new_review_path(attraction_id:  @attraction.id, user_id: User.find_by(name: session[:login_uid]).id) %>
+<% if session[:login_uid] %>
+    <%= link_to "レビューを投稿する", new_review_path(attraction_id:  @attraction.id, user_id: User.find_by(name: session[:login_uid]).id) %>
+<% else %>
+    ログインするとレビューが書けます
+<% end %>

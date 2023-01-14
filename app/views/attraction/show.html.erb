@@ -16,11 +16,7 @@
 <p>
     
 
-<p>
-    <%# if user = User.find_by(id: session[:login_uid]) and @attraction.user_id == user.id %>
-            <%#= link_to '投稿を削除', attraction_path(@attraction) , method: :delete %>
-    <%# end %>
-<p>
+
     <%= @attraction.prefecture %>　　
     <% genres = @attraction.genre %>
     <% tmp = genres.split('"').each_slice(2).map(&:last) %>
@@ -65,11 +61,12 @@
 <p>
     <%= @attraction.contact %>
 </P>
-
 <p>
-<%= link_to "編集", edit_attraction_path(@attraction.id) %>
-</P>
-
+<% if current_user.id == contributor.id %>
+    <%= link_to "編集", edit_attraction_path(@attraction.id) %>
+    <%= link_to '投稿を削除', attraction_path(@attraction) , method: :delete %>
+<% end %>
+</p>
 <%= "レビュー" %><br>
 <% @review.each do |review| %>
     <% viewer = User.find(review.user_id) %>

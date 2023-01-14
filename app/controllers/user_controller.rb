@@ -47,7 +47,7 @@ class UserController < ApplicationController
     def update
         user = User.find_by(name: params[:id])
         if params[:user][:icon]
-            icon = pparams[:user][:icon].read
+            icon = params[:user][:icon].read
         elsif not user.icon.nil?
             icon = user.icon
         else

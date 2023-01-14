@@ -1,7 +1,11 @@
 <meta charset="utf-8" />
 
 <p>
-    <%= image_tag "/get_image/#{@user.id}" %>
+    <% if @user.icon.nil? %>
+            <%= image_tag 'アイコン.jpg' %>
+          <% else %>
+            <%= image_tag "/get_image/#{@user.id}", class: "icon" %>
+          <% end %>
 </p>
 <%= @user.name %><br>
 <%= @user.profile %><br>

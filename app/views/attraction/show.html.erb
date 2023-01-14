@@ -1,11 +1,21 @@
+<% contributor = User.find_by(id: @attraction.user_id)  %>
 <p>
     <%= @attraction.name %>
 </p>
 <p>
-    <%= @attraction.user_id %>
-    <%#= ユーザー名 %>　
+    <div>
+        <% if contributor.icon.nil? %>
+            <%= image_tag 'アイコン.jpg' %>
+          <% else %>
+            <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
+          <% end %>
+        <%= contributor.name %>さん
+    </div>
     <%= @attraction.time %>
 </P>
+<p>
+    
+
 <p>
     <%# if user = User.find_by(id: session[:login_uid]) and @attraction.user_id == user.id %>
             <%#= link_to '投稿を削除', attraction_path(@attraction) , method: :delete %>
@@ -58,8 +68,15 @@
 
 <%= "レビュー" %><br>
 <% @review.each do |review| %>
-    <%= "アイコン君" %>
-    <%= User.find(review.user_id).name %>
+    <% viewer = User.find(review.user_id) %>
+    <div>
+        <% if viewer.icon.nil? %>
+            <%= image_tag 'アイコン.jpg' %>
+          <% else %>
+            <%= image_tag "/get_image/#{viewer.id}", class: "icon" %>
+          <% end %>
+        <%= viewer.name %>さん
+    </div>
     <%= review.text %>
     <%= review.time %>
     <br>

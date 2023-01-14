@@ -92,7 +92,7 @@ class AttractionController < ApplicationController
         @attraction = Attraction.new(name: params[:attraction][:name], prefecture: params[:attraction][:prefecture], 
         text: params[:attraction][:text], url: params[:attraction][:url], genre: params[:attraction][:genre], 
         open_time: params[:attraction][:open_time], contact: params[:attraction][:contact], address: params[:attraction][:address], 
-        user_id: params[:attraction][:user_id], time: Time.current, picture1: pic1, picture2: pic2, 
+        user_id: current_user.id, time: Time.current, picture1: pic1, picture2: pic2, 
         picture3: pic3, picture4: pic4, picture5: pic5, picture6: pic6)
         if @attraction.save
             redirect_to root_path

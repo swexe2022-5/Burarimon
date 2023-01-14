@@ -8,7 +8,16 @@
 <%= link_to '検索・並び替え', '/attraction/search' %>
 
 <% @attractions.each do |item| %>
+<% contributor = User.find_by(id: item.user_id)  %>
 <p>
+    <div>
+        <% if contributor.icon.nil? %>
+            <%= image_tag 'アイコン.jpg' %>
+          <% else %>
+            <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
+          <% end %>
+        <%= contributor.name %>さん
+    </div>
     <%= item.name %>
     <%= link_to '閲覧', attraction_path(item.id) %>
 </p>

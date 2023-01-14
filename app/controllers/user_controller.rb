@@ -12,10 +12,11 @@ class UserController < ApplicationController
     
     def create
         if params[:user][:icon]
-            @user = User.new(name: params[:user][:name], pass: params[:user][:password], profile: params[:user][:profile], icon: params[:user][:icon].read, owner: params[:user][:owner])
+            icon = params[:user][:icon].read
         else
-            @user = User.new(name: params[:user][:name], pass: params[:user][:password], profile: params[:user][:profile], owner: params[:user][:owner])
+            icon = nil
         end
+            @user = User.new(name: params[:user][:name], pass: params[:user][:password], profile: params[:user][:profile], icon: icon, owner: params[:user][:owner])
         if @user.save
             flash[:notice] = "新規登録しました。"
             redirect_to user_index_path
@@ -46,11 +47,14 @@ class UserController < ApplicationController
     def update
         user = User.find_by(name: params[:id])
         if params[:user][:icon]
-            user.update(name: params[:user][:name], profile: params[:user][:profile], icon: params[:user][:icon].read, owner: params[:user][:owner])
+            icon = pparams[:user][:icon].read
+        elsif not user.icon.nil?
+            icon = user.icon
         else
-            
-            user.update(name: params[:user][:name], profile: params[:user][:profile], owner: params[:user][:owner])
+            icon = nil
         end
+        
+        user.update(name: params[:user][:name], profile: params[:user][:profile], icon: icon, owner: params[:user][:owner])
         session[:login_uid] = params[:user][:name]
         redirect_to user_path(user.name)
     end

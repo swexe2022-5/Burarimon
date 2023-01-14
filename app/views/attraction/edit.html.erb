@@ -7,48 +7,70 @@
         <%= f.label :text, '紹介文' %><br>
         <%= f.text_area :text %>
     </p>
-    
     <p>
         ジャンル<br>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[0], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("レジャー")}, @genres[0], nil %>
         <%= f.label :genre, "レジャー" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[1], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("文化・歴史")}, @genres[1], nil %>
         <%= f.label :genre, "文化・歴史" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[2], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("自然")}, @genres[2], nil %>
         <%= f.label :genre, "自然" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[3], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("芸術")}, @genres[3], nil %>
         <%= f.label :genre, "芸術" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[4], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("ショッピング")}, @genres[4], nil %>
         <%= f.label :genre, "ショッピング" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[5], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("温泉")}, @genres[5], nil %>
         <%= f.label :genre, "温泉" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[6], nil %>
-       <%= f.label :genre, "生き物" %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("生き物")}, @genres[6], nil %>
+        <%= f.label :genre, "生き物" %>
     </p>
     <p>
-    <%= f.label :pcture1, '画像1' %>
-　　<%= f.file_field :pcture1 %>
+        <%= f.label :picture1, '画像1' %>
+    　　<%= f.file_field :picture1 %>
+    　　<% if not @attraction.picture1.nil? %>
+        　　<br>既に画像があります。<br>
+            <%= image_tag "/get_picture1/#{@attraction.id}" %>
+        <% end %>
     </p>
     <p>
-    <%= f.label :pcture2, '画像2' %>
-　　<%= f.file_field :pcture2 %>
+        <%= f.label :picture2, '画像2' %>
+    　　<%= f.file_field :picture2 %>
+    　　<% if not @attraction.picture2.nil? %>
+        　　<br>既に画像があります。<br>
+            <%= image_tag "/get_picture2/#{@attraction.id}" %>
+        <% end %>
     </p>
     <p>
-    <%= f.label :pcture3, '画像3' %>
-　　<%= f.file_field :pcture3 %>
+        <%= f.label :picture3, '画像3' %>
+    　　<%= f.file_field :picture3 %>
+    　　<% if not @attraction.picture3.nil? %>
+        　　<br>既に画像があります。<br>
+            <%= image_tag "/get_picture3/#{@attraction.id}" %>
+        <% end %>
     </p>
     <p>
-    <%= f.label :pcture4, '画像4' %>
-　　<%= f.file_field :pcture4 %>
+        <%= f.label :picture4, '画像4' %>
+    　　<%= f.file_field :picture4 %>
+    　　<% if not @attraction.picture4.nil? %>
+        　　<br>既に画像があります。<br>
+            <%= image_tag "/get_picture4/#{@attraction.id}" %>
+        <% end %>
     </p>
-    
     <p>
-    <%= f.label :pcture5, '画像5' %>
-　　<%= f.file_field :pcture5 %>
+        <%= f.label :picture5, '画像5' %>
+    　　<%= f.file_field :picture5 %>
+    　　<% if not @attraction.picture5.nil? %>
+        　　<br>既に画像があります。<br>
+            <%= image_tag "/get_picture5/#{@attraction.id}" %>
+        <% end %>
     </p>
     <p>
-    <%= f.label :pcture6, '画像6' %>
-　　<%= f.file_field :pcture6 %>
+        <%= f.label :picture6, '画像6' %>
+    　　<%= f.file_field :picture6 %>
+    　　<% if not @attraction.picture6.nil? %>
+        　　<br>既に画像があります。<br>
+            <%= image_tag "/get_picture6/#{@attraction.id}" %>
+        <% end %>
     </p>
     
     <p>

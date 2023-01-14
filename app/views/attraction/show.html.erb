@@ -2,10 +2,14 @@
     <%= @attraction.name %>
 </p>
 <p>
-    <%#= アイコン %>
-    <%#= ユーザー名 %>
+    <%= @attraction.user_id %>
+    <%#= ユーザー名 %>　
     <%= @attraction.time %>
 </P>
+<p>
+    <%# if user = User.find_by(id: session[:login_uid]) and @attraction.user_id == user.id %>
+            <%#= link_to '投稿を削除', attraction_path(@attraction) , method: :delete %>
+    <%# end %>
 <p>
     <%= @attraction.prefecture %>　　
     <% genres = @attraction.genre %>
@@ -18,13 +22,25 @@
 <p>
     <%= @attraction.text %>
 </P>
-<p>
-    <%= image_tag "/get_picture1/#{@attraction.id}" %>
-    <%= image_tag "/get_picture2/#{@attraction.id}" %>
-    <%= image_tag "/get_picture3/#{@attraction.id}" %>
-    <%= image_tag "/get_picture4/#{@attraction.id}" %>
-    <%= image_tag "/get_picture5/#{@attraction.id}" %>
-    <%= image_tag "/get_picture6/#{@attraction.id}" %>
+<p>  
+    <% if not @attraction.picture1.nil? %>
+        <%= image_tag "/get_picture1/#{@attraction.id}" %>
+    <% end %>
+    <% if not @attraction.picture2.nil? %>
+        <%= image_tag "/get_picture2/#{@attraction.id}" %>
+    <% end %>
+    <% if not @attraction.picture3.nil? %>
+        <%= image_tag "/get_picture3/#{@attraction.id}" %>
+    <% end %>
+    <% if not @attraction.picture4.nil? %>
+        <%= image_tag "/get_picture4/#{@attraction.id}" %>
+    <% end %>
+    <% if not @attraction.picture5.nil? %>
+        <%= image_tag "/get_picture5/#{@attraction.id}" %>
+    <% end %>
+    <% if not @attraction.picture6.nil? %>
+        <%= image_tag "/get_picture6/#{@attraction.id}" %>
+    <% end %>
 </P>
 <p>
     <%= @attraction.address %>

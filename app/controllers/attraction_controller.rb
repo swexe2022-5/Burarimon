@@ -216,4 +216,3 @@ class AttractionController < ApplicationController
         send_data attraction.picture6, disposition: :inline, type: 'image/png'
     end
 end
-

@@ -1,5 +1,9 @@
 <meta charset="utf-8" />
 
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
 <p>
     <% if @user.icon.nil? %>
             <%= image_tag 'アイコン.jpg', id: "icon_profile" %>

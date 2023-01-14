@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
 <% contributor = User.find_by(id: @attraction.user_id)  %>
 <p>
     <%= @attraction.name %>

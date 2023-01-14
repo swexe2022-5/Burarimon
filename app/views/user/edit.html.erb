@@ -1,3 +1,12 @@
+<% if flash[:error].present? %>
+<h3>エラーがあります。</h3>
+<ul>
+    <% flash[:error].each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+</ul>
+<% end %>
+
 <%= form_for @user , url: {action: :update} do |f| %>
     <%= f.label :name, 'ユーザー名' %>
     <%= f.text_field :name %>
@@ -11,7 +20,7 @@
     </p>
     <p>
     <%= f.label :profile, 'ユーザー' %>
-    <%= f.radio_button :owner, :false %>
+    <%= f.radio_button :owner, :false, {:checked => true} %>
     <%= f.label :owner, "一般ユーザー", {value: false} %>
   　<%= f.radio_button :owner, :true %>
     <%= f.label :owner, "オーナー", {value: false} %>

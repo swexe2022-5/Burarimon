@@ -5,7 +5,7 @@
 <p>
     <div>
         <% if contributor.icon.nil? %>
-            <%= image_tag 'アイコン.jpg' %>
+            <%= image_tag 'アイコン.jpg', class: "icon" %>
           <% else %>
             <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
           <% end %>
@@ -38,13 +38,17 @@
         <% end %>
         <% if not @attraction.picture2.nil? %>
             <%= image_tag "/get_picture2/#{@attraction.id}", class: "photo" %>
-        <% end %><% if not @attraction.picture3.nil? %>
+        <% end %>
+        <% if not @attraction.picture3.nil? %>
             <%= image_tag "/get_picture3/#{@attraction.id}", class: "photo" %>
-        <% end %> <% if not @attraction.picture4.nil? %>
+        <% end %>
+        <% if not @attraction.picture4.nil? %>
             <%= image_tag "/get_picture4/#{@attraction.id}", class: "photo" %>
-        <% end %><% if not @attraction.picture5.nil? %>
+        <% end %>
+        <% if not @attraction.picture5.nil? %>
             <%= image_tag "/get_picture5/#{@attraction.id}", class: "photo" %>
-        <% end %><% if not @attraction.picture6.nil? %>
+        <% end %>
+        <% if not @attraction.picture6.nil? %>
             <%= image_tag "/get_picture6/#{@attraction.id}", class: "photo" %>
         <% end %>
     </div>
@@ -71,7 +75,7 @@
     <% viewer = User.find(review.user_id) %>
     <div>
         <% if viewer.icon.nil? %>
-            <%= image_tag 'アイコン.jpg' %>
+            <%= image_tag 'アイコン.jpg', class: "icon" %>
           <% else %>
             <%= image_tag "/get_image/#{viewer.id}", class: "icon" %>
           <% end %>

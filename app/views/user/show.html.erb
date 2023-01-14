@@ -2,9 +2,9 @@
 
 <p>
     <% if @user.icon.nil? %>
-            <%= image_tag 'アイコン.jpg' %>
+            <%= image_tag 'アイコン.jpg', id: "icon_profile" %>
           <% else %>
-            <%= image_tag "/get_image/#{@user.id}", class: "icon" %>
+            <%= image_tag "/get_image/#{@user.id}", id: "icon_profile" %>
           <% end %>
 </p>
 <%= @user.name %><br>

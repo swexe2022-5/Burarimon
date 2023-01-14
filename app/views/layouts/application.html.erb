@@ -11,10 +11,9 @@
 
   <body>
     <div id="header">
-      
       <% if session[:login_uid] %>
           <% if current_user.icon.nil? %>
-            <%= image_tag 'アイコン.jpg' %>
+            <%= image_tag 'アイコン.jpg', class: "icon"%>
           <% else %>
             <%= image_tag "/get_image/#{current_user.id}", class: "icon" %>
           <% end %>

@@ -12,7 +12,7 @@
 <p>
     <div>
         <% if contributor.icon.nil? %>
-            <%= image_tag 'アイコン.jpg' %>
+            <%= image_tag 'アイコン.jpg', class: "icon" %>
           <% else %>
             <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
           <% end %>

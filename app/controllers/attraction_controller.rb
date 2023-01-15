@@ -114,6 +114,7 @@ class AttractionController < ApplicationController
     end
     
     def update
+        @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物", "その他"]
         @attraction = Attraction.find(params[:id])
         if params[:attraction][:picture1]
             pic1 = params[:attraction][:picture1].read
@@ -167,7 +168,10 @@ class AttractionController < ApplicationController
             redirect_to attraction_path
         else
             flash[:error] = @attraction.errors.full_messages
-            render edit_attraction_path
+            flash[:id] = @attraction.id
+            puts "!23456789"
+            @attraction.genre = []
+            render "edit"
         end
     end
     

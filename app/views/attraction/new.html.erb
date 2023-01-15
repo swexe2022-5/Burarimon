@@ -1,4 +1,9 @@
-<h1>新規投稿</h1
+<% if not @attraction.genre %>
+    <% @attraction.genre = [] %>
+<% end %>
+    
+<h1>新規投稿</h1>
+
 <% if @attraction.errors.present? %>
 <h3>エラーがあります。</h3>
 <ul>
@@ -19,21 +24,21 @@
     </p>
     <p>
         <h2>ジャンル</h2>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[0], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("レジャー")}, @genres[0], nil %>
         <%= f.label :genre, "レジャー" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[1], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("文化・歴史")}, @genres[1], nil %>
         <%= f.label :genre, "文化・歴史" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[2], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("自然")}, @genres[2], nil %>
         <%= f.label :genre, "自然" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[3], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("芸術")}, @genres[3], nil %>
         <%= f.label :genre, "芸術" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[4], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("ショッピング")}, @genres[4], nil %>
         <%= f.label :genre, "ショッピング" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[5], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("温泉")}, @genres[5], nil %>
         <%= f.label :genre, "温泉" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[6], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("生き物")}, @genres[6], nil %>
         <%= f.label :genre, "生き物" %>
-        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[7], nil %>
+        <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("その他")}, @genres[7], nil %>
         <%= f.label :genre, "その他" %>
     </p>
     <p>

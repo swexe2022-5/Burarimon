@@ -1,4 +1,13 @@
+<% @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物", "その他"] %>
+<% if not @attraction %>
+    <% @attraction = Attraction.find(flash[:id]) %>
+    <% if not @attraction.genre %>
+        <% @attraction.genre = [] %>
+    <% end %>
+<% end %>
+
 <h1>投稿を編集</h1>
+
 <% if flash[:error].present? %>
 <h3>エラーがあります。</h3>
 <ul>

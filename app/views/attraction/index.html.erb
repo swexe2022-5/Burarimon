@@ -13,7 +13,7 @@
 
 <% @attractions.each do |item| %>
 <% contributor = User.find_by(id: item.user_id)  %>
-<p>
+<div class = "index_content">
     <div>
         <% if contributor.icon.nil? %>
             <%= image_tag 'アイコン.jpg', class: "icon" %>
@@ -22,7 +22,9 @@
          <% end %>
         <%= contributor.name %>さん
     </div>
-    <%= item.name %>
+    <%= item.name %><br>
+    <%= image_tag "/get_picture1/#{item.id}", class: "index_photo" %>
+    <br>
     <%= link_to '閲覧', attraction_path(item.id) %>
-</p>
+</div>
 <% end %>

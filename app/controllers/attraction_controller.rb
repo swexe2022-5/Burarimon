@@ -48,7 +48,7 @@ class AttractionController < ApplicationController
                     genre_p(@attractions_list)
                 end
             else
-                @attractions = Attraction.all
+                @attractions = Attraction.all.order(id: "DESC")
             end
         end
     end
@@ -159,7 +159,7 @@ class AttractionController < ApplicationController
         if @attraction.update(name: params[:attraction][:name], prefecture: params[:attraction][:prefecture], 
         text: params[:attraction][:text], url: params[:attraction][:url], genre: params[:attraction][:genre], 
         open_time: params[:attraction][:open_time], contact: params[:attraction][:contact], address: params[:attraction][:address], 
-        user_id: params[:attraction][:user_id], time: Time.current, picture1: pic1, picture2: pic2, 
+        user_id: @attraction.user_id, time: Time.current, picture1: pic1, picture2: pic2, 
         picture3: pic3, picture4: pic4, picture5: pic5, picture6: pic6)
             redirect_to attraction_path
         else

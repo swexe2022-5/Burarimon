@@ -2,7 +2,7 @@
     <%= flash[:notice] %>
 <% end %>
 
-<% contributor = User.find_by(id: @attraction.user_id)  %>
+<% contributor = User.find_by(id: @attraction.user_id) %>
 <h1><%= @attraction.name %></h1>
 <div>
     <p class = "left">
@@ -70,7 +70,7 @@
     <%= @attraction.contact %>
 </P>
 <p class = "right">
-    <% if current_user.id == contributor.id %>
+    <% if current_user and current_user.id == contributor.id %>
         <%= link_to "編集", edit_attraction_path(@attraction.id) %>
         <%= link_to '投稿を削除', attraction_path(@attraction) , method: :delete %>
     <% end %>

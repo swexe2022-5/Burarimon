@@ -11,8 +11,9 @@
             <%= image_tag "/get_image/#{@user.id}", id: "icon_profile" %>
           <% end %>
 </p>
-<%= @user.name %><br>
-<%= @user.profile %><br>
+<h1><%= @user.name %></h1>
+<h3>プロフィール文</h3>
+<%= @user.profile %><br><br>
 <% if session[:login_uid] == @user.name%>
     <%= link_to "戻る", root_path %>
     <%= link_to "編集", edit_user_path(@user.name) %>

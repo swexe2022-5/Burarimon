@@ -1,10 +1,10 @@
 <% @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物"] %>
 <%= form_tag attraction_searchdb_path, method: :post do %>
-    県名<br>
+    <h2>県名</h2>
     <select name="prefecture">
         <option value="全国">全国</option>
         <option value="北海道">北海道</option>
-        <option value="青森県">青森県</option> #new_attractionにスペースが入っているのでスペースを入れている
+        <option value="青森県">青森県</option>
         <option value="岩手県">岩手県</option>
         <option value="宮城県">宮城県</option>
         <option value="秋田県">秋田県</option>
@@ -52,17 +52,17 @@
         <option value="沖縄県">沖縄県</option>
     </select>
     <br>
-    ジャンル<br>
+    <h2>ジャンル</h2>
     <% @genres.each do |i| %>
         <%= check_box "genres", i, {multiple: true, checked: false} %><%= i %>
     <% end %>
     <br>
-    並べ替え<br>
+    <h2>並べ替え</h2>
     <select name="order">
-        <option value="ASC">登録が新しい順</option>
-        <option value="DESC">登録が古い順</option>
+        <option value="DESC">登録が新しい順</option>
+        <option value="ASC">登録が古い順</option>
         <option value="name">五十音順</option>
     </select>
     <br><br>
-    <%= submit_tag "商品を検索"%>
+    <%= submit_tag "実行"%>
 <% end %>

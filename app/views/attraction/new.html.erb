@@ -1,5 +1,6 @@
+<h1>新規投稿</h1>
 <%= form_for @attraction, url: {action: :create } do |f| %>
-    URLと画像2~3以外は全て必須項目。<br>
+    紹介文・画像2~3・URL以外は全て必須項目。<br>
     <p>
         <h2><%= f.label :name, '名称' %></h2>
         <%= f.text_field :name %>
@@ -27,29 +28,28 @@
     </p>
     <p>
         <h2><%= f.label :picture1, '画像1' %></h2>
-    　　<%= f.file_field :picture1 %>
+        <%= f.file_field :picture1 %>
     </p>
     <p>
         <h2><%= f.label :picture2, '画像2' %></h2>
-    　　<%= f.file_field :picture2 %>
+        <%= f.file_field :picture2 %>
     </p>
     <p>
         <h2><%= f.label :picture3, '画像3' %></h2>
-    　　<%= f.file_field :picture3 %>
+        <%= f.file_field :picture3 %>
     </p>
     <p>
         <h2><%= f.label :picture4, '画像4' %></h2>
-    　　<%= f.file_field :picture4 %>
+        <%= f.file_field :picture4 %>
     </p>
     <p>
         <h2><%= f.label :picture5, '画像5' %></h2>
-    　　<%= f.file_field :picture5 %>
+        <%= f.file_field :picture5 %>
     </p>
     <p>
         <h2><%= f.label :picture6, '画像6' %></h2>
-    　　<%= f.file_field :picture6 %>
+        <%= f.file_field :picture6 %>
     </p>
-    
     <p>
         <h2>都道府県</h2>
         <%= f.select :prefecture,  ['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', 

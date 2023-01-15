@@ -19,7 +19,7 @@
                 <% else %>
                   <%= image_tag "/get_image/#{current_user.id}", class: "icon" %>
                 <% end %>
-                <%= current_user.name %>さん(プロフィールへ)
+                  <%= current_user.name %>さん(プロフィールへ)
               <% end %>
             　<%= link_to 'ログアウト', user_index_path %>
         <% else %>

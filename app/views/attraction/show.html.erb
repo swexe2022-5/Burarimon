@@ -4,6 +4,7 @@
 
 <% contributor = User.find_by(id: @attraction.user_id) %>
 <h1><%= @attraction.name %></h1>
+<h2>投稿者</h2>
 <div>
     <p class = "left">
         <%= link_to user_path(contributor.name) do %>
@@ -20,13 +21,13 @@
     </p>
 </div>
 <p>
-    <%= @attraction.prefecture %>　　
-    <% genres = @attraction.genre %>
+    <b><%= @attraction.prefecture %>　</b>　
+    <b><% genres = @attraction.genre %>
     <% tmp = genres.split('"').each_slice(2).map(&:last) %>
     <% tmp.pop %>
     <% tmp.each do |genre| %>
         <%= genre %>
-    <% end %>
+    <% end %></b>
 </P>
 <p>
     <h2>紹介文</h2>
@@ -78,15 +79,17 @@
 <h1><%= "レビュー" %></h1>
 <hr>
 <% @review.each do |review| %>
-    <% viewer = User.find(review.user_id) %>
-    <%= link_to user_path(viewer.name) do %>
-        <% if viewer.icon.nil? %>
-            <%= image_tag 'アイコン.jpg', class: "icon" %>
-        <% else %>
-            <%= image_tag "/get_image/#{viewer.id}", class: "icon" %>
+    <div>
+        <% viewer = User.find(review.user_id) %>
+        <%= link_to user_path(viewer.name) do %>
+            <% if viewer.icon.nil? %>
+                <%= image_tag 'アイコン.jpg', class: "icon" %>
+            <% else %>
+                <%= image_tag "/get_image/#{viewer.id}", class: "icon" %>
+            <% end %>
+            <%= viewer.name %>さん
         <% end %>
-        <%= viewer.name %>さん
-    <% end %>
+    </div>
     <p>
         <%= review.text %>
     </p>

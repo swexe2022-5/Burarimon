@@ -1,3 +1,11 @@
+*{
+    text-decoration: none; 
+}
+
+.attractionName{
+    color: #000000;
+}
+
 #header{
     height: 70px;
 }

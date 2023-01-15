@@ -7,14 +7,14 @@
     <%= @attraction.name %>
 </p>
 <p>
-    <div>
+    <%= link_to user_path(contributor.name) do %>
         <% if contributor.icon.nil? %>
             <%= image_tag 'アイコン.jpg', class: "icon" %>
           <% else %>
             <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
           <% end %>
         <%= contributor.name %>さん
-    </div>
+    <% end %>
     <br>
     <%= @attraction.time.strftime('%Y-%m-%d') %>
 </P>
@@ -75,14 +75,14 @@
 <%= "レビュー" %><br>
 <% @review.each do |review| %>
     <% viewer = User.find(review.user_id) %>
-    <div>
+    <%= link_to user_path(viewer.name) do %>
         <% if viewer.icon.nil? %>
             <%= image_tag 'アイコン.jpg', class: "icon" %>
         <% else %>
             <%= image_tag "/get_image/#{viewer.id}", class: "icon" %>
         <% end %>
         <%= viewer.name %>さん
-    </div>
+    <% end %>
     <%= review.text %>
     <%= review.time.strftime('%Y-%m-%d') %>
     <br>

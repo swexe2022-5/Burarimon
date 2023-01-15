@@ -12,12 +12,14 @@
   <body>
     <div id="header">
       <% if session[:login_uid] %>
-          <% if current_user.icon.nil? %>
-            <%= image_tag 'アイコン.jpg', class: "icon"%>
-          <% else %>
-            <%= image_tag "/get_image/#{current_user.id}", class: "icon" %>
-          <% end %>
-          <%= current_user.name %>さん
+            <%= link_to user_path(current_user.name) do %>
+              <% if current_user.icon.nil? %>
+                <%= image_tag 'アイコン.jpg', class: "icon"%>
+              <% else %>
+                <%= image_tag "/get_image/#{current_user.id}", class: "icon" %>
+              <% end %>
+              <%= current_user.name %>さん
+            <% end %>
           <%= link_to 'ログアウト', user_index_path %>
           <%= link_to "プロフィール", user_path(session[:login_uid])  %>
       <% else %>

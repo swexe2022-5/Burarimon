@@ -18,34 +18,6 @@
     </ul>
     <% end %>
     
-    <%= form_for @attraction, url: {action: :update } do |f| %>
-        <p>
-            <h2><%= f.label :name, '名称' %></h2>
-            <%= f.text_field :name %>
-        </p>
-        <p>
-            <h2><%= f.label :text, '紹介文' %></h2>
-            <%= f.text_area :text ,size: "60x15"%>
-        </p>
-        <p>
-            <h2>ジャンル</h2>
-            <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("レジャー")}, @genres[0], nil %>
-            <%= f.label :genre, "レジャー" %>
-            <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("文化・歴史")}, @genres[1], nil %>
-            <%= f.label :genre, "文化・歴史" %>
-            <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("自然")}, @genres[2], nil %>
-            <%= f.label :genre, "自然" %>
-            <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("芸術")}, @genres[3], nil %>
-            <%= f.label :genre, "芸術" %>
-            <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("ショッピング")}, @genres[4], nil %>
-            <%= f.label :genre, "ショッピング" %>
-            <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("温泉")}, @genres[5], nil %>
-            <%= f.label :genre, "温泉" %>
-            <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("生き物")}, @genres[6], nil %>
-            <%= f.label :genre, "生き物" %>
-            <%= f.check_box :genre, {multiple: true, checked: @attraction.genre.include?("その他")}, @genres[7], nil %>
-            <%= f.label :genre, "その他" %>
-        </p>
         <div id="photo_edit">
         <p>
             <h2><%= f.label :name, '名称' %></h2>

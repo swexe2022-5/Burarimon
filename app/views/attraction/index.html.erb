@@ -2,7 +2,6 @@
     <%= flash[:notice] %>
 <% end %>
 
-<h1>ぶらりもん</h1>
 <div id = "IndexPage">
     <div>
         <p class = "left">
@@ -30,7 +29,7 @@
                             <%= contributor.name %>さん<br>
                         <% end %>
                     </object>
-                    <h2><%= item.name %><h2>
+                    <h2 class = "attractionName"><%= item.name %><h2>
                     <div class = "index_photo">
                         <%= image_tag "/get_picture1/#{item.id}", class: "index_photo" %>
                     </div>

@@ -12,20 +12,21 @@
 <%= link_to '検索・並び替え', '/attraction/search' %>
 
 <% @attractions.each do |item| %>
-<% contributor = User.find_by(id: item.user_id)  %>
-<div class = "index_content">
-    <%= link_to user_path(contributor.name) do %>
-        <% if contributor.icon.nil? %>
-            <%= image_tag 'アイコン.jpg', class: "icon" %>
-         <% else %>
-            <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
-         <% end %>
-        <%= contributor.name %>さん
-    <%= item.name %><br>
-    <%= image_tag "/get_picture1/#{item.id}", class: "index_photo" %>
-    <br>
+    <% contributor = User.find_by(id: item.user_id)  %>
+    <%= link_to attraction_path(item.id) do %>
+        <div class = "index_content">
+                <object>
+                    <%= link_to user_path(contributor.name) do %>
+                        <% if contributor.icon.nil? %>
+                            <%= image_tag 'アイコン.jpg', class: "icon" %>
+                         <% else %>
+                            <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
+                         <% end %>
+                        <%= contributor.name %>さん<br>
+                    <% end %>
+                </object>
+                <%= item.name %><br>
+                <%= image_tag "/get_picture1/#{item.id}", class: "index_photo" %>
+        </div>
     <% end %>
-    <%= item.name %>
-    <%= link_to '閲覧', attraction_path(item.id) %>
-</div>
 <% end %>

@@ -61,7 +61,7 @@
     <%= @attraction.open_time %>
 </P>
 <p>
-    <%= @attraction.url %>
+    <%= link_to "#{@attraction.url}", @attraction.url %>
 </P>
 <p>
     <%= @attraction.contact %>

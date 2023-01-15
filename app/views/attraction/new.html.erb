@@ -1,14 +1,15 @@
 <%= form_for @attraction, url: {action: :create } do |f| %>
+    URLと画像2~3以外は全て必須項目。<br>
     <p>
-        <%= f.label :name, '名称' %>
+        <h2><%= f.label :name, '名称' %></h2>
         <%= f.text_field :name %>
     </p>
     <p>
-        <%= f.label :text, '紹介文' %><br>
-        <%= f.text_area :text %>
+        <h2><%= f.label :text, '紹介文' %></h2>
+        <%= f.text_area :text ,size: "60x15"%>
     </p>
     <p>
-        ジャンル<br>
+        <h2>ジャンル</h2>
         <%= f.check_box :genre, {multiple: true, checked: false}, @genres[0], nil %>
         <%= f.label :genre, "レジャー" %>
         <%= f.check_box :genre, {multiple: true, checked: false}, @genres[1], nil %>
@@ -25,51 +26,51 @@
         <%= f.label :genre, "生き物" %>
     </p>
     <p>
-    <%= f.label :picture1, '画像1' %>
-　　<%= f.file_field :picture1 %>
+        <h2><%= f.label :picture1, '画像1' %></h2>
+    　　<%= f.file_field :picture1 %>
     </p>
     <p>
-    <%= f.label :picture2, '画像2' %>
-　　<%= f.file_field :picture2 %>
+        <h2><%= f.label :picture2, '画像2' %></h2>
+    　　<%= f.file_field :picture2 %>
     </p>
     <p>
-    <%= f.label :picture3, '画像3' %>
-　　<%= f.file_field :picture3 %>
+        <h2><%= f.label :picture3, '画像3' %></h2>
+    　　<%= f.file_field :picture3 %>
     </p>
     <p>
-    <%= f.label :picture4, '画像4' %>
-　　<%= f.file_field :picture4 %>
+        <h2><%= f.label :picture4, '画像4' %></h2>
+    　　<%= f.file_field :picture4 %>
     </p>
     <p>
-    <%= f.label :picture5, '画像5' %>
-　　<%= f.file_field :picture5 %>
+        <h2><%= f.label :picture5, '画像5' %></h2>
+    　　<%= f.file_field :picture5 %>
     </p>
     <p>
-    <%= f.label :picture6, '画像6' %>
-　　<%= f.file_field :picture6 %>
+        <h2><%= f.label :picture6, '画像6' %></h2>
+    　　<%= f.file_field :picture6 %>
     </p>
     
     <p>
-        都道府県
+        <h2>都道府県</h2>
         <%= f.select :prefecture,  ['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', 
         '東京都', '神奈川県', '新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県', '三重県', '滋賀県', '京都府', '大阪府', 
         '兵庫県', '奈良県', '和歌山県', '鳥取県', '島根県', '岡山県', '広島県', '山口県', '徳島県', '香川県', '愛媛県', '高知県', '福岡県', '佐賀県', '長崎県', 
         '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'], {include_blank: '選択'} %>
     <p>
     <p>
-        <%= f.label :address, '住所' %>
+        <h2><%= f.label :address, '住所' %></h2>
         <%= f.text_field :address %>
     </p>
     <p>
-        <%= f.label :open_time, '営業日時' %>
-        <%= f.text_field :open_time %>
+        <h2><%= f.label :open_time, '営業日時' %></h2>
+        <%= f.text_area :open_time ,size: "60x5"%>
     </p>
     <p>
-        <%= f.label :url, 'URL' %>
+        <h2><%= f.label :url, 'URL' %></h2>
         <%= f.text_field :url %>
     </p>
     <p>
-        <%= f.label :contact, 'お問い合わせ先' %>
+        <h2><%= f.label :contact, 'お問い合わせ先' %></h2>
         <%= f.text_field :contact %>
     </p>
     <%= f.submit '投稿' %>

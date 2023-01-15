@@ -2,31 +2,40 @@
     <%= flash[:notice] %>
 <% end %>
 
-<% if session[:login_uid] %>
-    <% if User.find_by(name: session[:login_uid]).owner %>
-        <%= link_to '投稿', new_attraction_path(user_id: User.find_by(name: session[:login_uid]).id) %>
+<h1>ぶらりもん</h1>
+<div id = "IndexPage">
+    <div>
+        <p class = "left">
+            <% if session[:login_uid] %>
+                <% if User.find_by(name: session[:login_uid]).owner %>
+                    <%= link_to '投稿', new_attraction_path(user_id: User.find_by(name: session[:login_uid]).id) %>
+                <% end %>
+            <% end %>
+        </p>
+        <p class = "right">
+            <%= link_to '検索・並び替え', '/attraction/search' %>
+        </p>
+    </div>
+    <% @attractions.each do |item| %>
+        <% contributor = User.find_by(id: item.user_id)  %>
+        <%= link_to attraction_path(item.id) do %>
+            <div class = "index_content">
+                    <object>
+                        <%= link_to user_path(contributor.name) do %>
+                            <% if contributor.icon.nil? %>
+                                <%= image_tag 'アイコン.jpg', class: "icon" %>
+                             <% else %>
+                                <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
+                             <% end %>
+                            <%= contributor.name %>さん<br>
+                        <% end %>
+                    </object>
+                    <h2><%= item.name %><h2>
+                    <div class = "index_photo">
+                        <%= image_tag "/get_picture1/#{item.id}", class: "index_photo" %>
+                    </div>
+                    
+            </div>
+        <% end %>
     <% end %>
-<% end %>
-
-
-<%= link_to '検索・並び替え', '/attraction/search' %>
-
-<% @attractions.each do |item| %>
-    <% contributor = User.find_by(id: item.user_id)  %>
-    <%= link_to attraction_path(item.id) do %>
-        <div class = "index_content">
-                <object>
-                    <%= link_to user_path(contributor.name) do %>
-                        <% if contributor.icon.nil? %>
-                            <%= image_tag 'アイコン.jpg', class: "icon" %>
-                         <% else %>
-                            <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
-                         <% end %>
-                        <%= contributor.name %>さん<br>
-                    <% end %>
-                </object>
-                <%= item.name %><br>
-                <%= image_tag "/get_picture1/#{item.id}", class: "index_photo" %>
-        </div>
-    <% end %>
-<% end %>
+</div>

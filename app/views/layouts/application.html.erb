@@ -11,23 +11,27 @@
 
   <body>
     <div id="header">
-      <% if session[:login_uid] %>
-            <%= link_to user_path(current_user.name) do %>
-              <% if current_user.icon.nil? %>
-                <%= image_tag 'アイコン.jpg', class: "icon"%>
-              <% else %>
-                <%= image_tag "/get_image/#{current_user.id}", class: "icon" %>
+      <p class = "left">
+        <% if session[:login_uid] %>
+              <%= link_to user_path(current_user.name) do %>
+                <% if current_user.icon.nil? %>
+                  <%= image_tag 'アイコン.jpg', class: "icon"%>
+                <% else %>
+                  <%= image_tag "/get_image/#{current_user.id}", class: "icon" %>
+                <% end %>
+                <%= current_user.name %>さん(プロフィールへ)
               <% end %>
-              <%= current_user.name %>さん
-            <% end %>
-          <%= link_to 'ログアウト', user_index_path %>
-          <%= link_to "プロフィール", user_path(session[:login_uid])  %>
-      <% else %>
-          <%= link_to 'ログイン', user_index_path %>
-      <% end %>
-      <%= link_to 'トップページへ', root_path %>
-      <hr>
+            　<%= link_to 'ログアウト', user_index_path %>
+        <% else %>
+            <%= link_to 'ログイン', user_index_path %>
+        <% end %>
+      </p>
+      <p class = "right headerText">
+        <%= link_to 'トップページへ', root_path %>
+      </p>
+      
     </div>
+    <hr>
     <div id="content">
       <%= yield %>
     </div>

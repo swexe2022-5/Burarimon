@@ -1,18 +1,35 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+#header{
+    height: 70px;
+}
+
+.headerText{
+   padding-top: 34px;
+}
+
+#content{
+    width: 980px;
+    margin: 0 auto;
+}
+
+#IndexPage{
+    width: 700px;                /*要修正*/
+    margin: 0 auto;
+}
+
+.index_content{
+    
+    border: 3px solid #000000;
+}
+
+.left{
+    text-align: left;
+    float: left;
+    margin-top: 0px;
+}
+
+.right {
+   text-align: right; 
+}
 
 #photos {
     display: flex;
@@ -48,10 +65,6 @@
 .index_photo{
     width: auto;
     height: 300px;
-    
+    text-align : center
 }
 
-.index_content{
-    width: 800px;                /*要修正*/
-    border: 3px solid #000000;
-}

@@ -19,7 +19,6 @@
     <% end %>
     
     <%= form_for @attraction, url: {action: :update } do |f| %>
-        <div id="photo_edit">
         <p>
             <h2><%= f.label :name, '名称' %></h2>
             <%= f.text_field :name %>

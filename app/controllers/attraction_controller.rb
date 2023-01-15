@@ -169,8 +169,6 @@ class AttractionController < ApplicationController
         else
             flash[:error] = @attraction.errors.full_messages
             flash[:id] = @attraction.id
-            puts "!23456789"
-            @attraction.genre = []
             render "edit"
         end
     end

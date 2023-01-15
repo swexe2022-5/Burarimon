@@ -44,3 +44,14 @@
     height: 150px;
     object-fit: contain;
 }
+
+.index_photo{
+    width: auto;
+    height: 300px;
+    
+}
+
+.index_content{
+    width: 800px;                /*要修正*/
+    border: 3px solid #000000;
+}

@@ -1,40 +1,42 @@
-<% if @user.errors.present? %>
-<h3>エラーがあります。</h3>
-<ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<div class = "userform">
+    <% if @user.errors.present? %>
+    <h3>エラーがあります。</h3>
+    <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+    </ul>
     <% end %>
-</ul>
-<% end %>
-
-<h1>アカウント新規登録</h1>
-<%= form_for @user, url: {action: :create } do |f| %>
-    <p>
-        <%= f.label :name, 'ユーザー名' %>
-        <%= f.text_field :name %>
-    </p>
-    <p>
-        <%= f.label :password, 'パスワード' %>
-        <%= f.password_field :password %>
-    </p>
-    <p>
-        <%= f.label :password_confirmation, 'パスワード(確認)' %>
-        <%= f.password_field :password_confirmation %>
-    </p>
-    <p>
-        <%= f.label :profile, 'プロフィール文' %><br>
-        <%= f.text_area :profile ,size: "60x5"%>
-    </p>
-    <p>
-    <%= f.label :icon, 'アイコン' %>
-　　<%= f.file_field :icon %>
-    </p>
-    <p>
-    <%= f.label :profile, 'ユーザー' %>
-    <%= f.radio_button :owner, :false, {:checked => true} %>
-    <%= f.label :owner, "一般ユーザー", {value: false} %>
-  　<%= f.radio_button :owner, :true %>
-    <%= f.label :owner, "オーナー", {value: false} %>
-    </p>
-    <%= f.submit '決定' %>
-<% end %>
+    
+    <h1>アカウント新規登録</h1>
+    <%= form_for @user, url: {action: :create } do |f| %>
+        <p>
+            <%= f.label :name, 'ユーザー名' %>
+            <%= f.text_field :name %>
+        </p>
+        <p>
+            <%= f.label :password, 'パスワード' %>
+            <%= f.password_field :password %>
+        </p>
+        <p>
+            <%= f.label :password_confirmation, 'パスワード(確認)' %>
+            <%= f.password_field :password_confirmation %>
+        </p>
+        <p>
+            <%= f.label :profile, 'プロフィール文' %><br>
+            <%= f.text_area :profile ,size: "60x5"%>
+        </p>
+        <p>
+        <%= f.label :icon, 'アイコン' %>
+    　　<%= f.file_field :icon %>
+        </p>
+        <p>
+        <%= f.label :profile, 'ユーザー' %>
+        <%= f.radio_button :owner, :false, {:checked => true} %>
+        <%= f.label :owner, "一般ユーザー", {value: false} %>
+      　<%= f.radio_button :owner, :true %>
+        <%= f.label :owner, "オーナー", {value: false} %>
+        </p>
+        <%= f.submit '決定' %>
+    <% end %>
+<div>

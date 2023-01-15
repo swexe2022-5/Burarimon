@@ -1,108 +1,110 @@
-<% if flash[:notice] %>
-    <%= flash[:notice] %>
-<% end %>
-
-<% contributor = User.find_by(id: @attraction.user_id) %>
-<h1><%= @attraction.name %></h1>
-<h2>投稿者</h2>
-<div>
-    <p class = "left">
-        <%= link_to user_path(contributor.name) do %>
-            <% if contributor.icon.nil? %>
-                <%= image_tag 'アイコン.jpg', class: "icon" %>
-              <% else %>
-                <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
-              <% end %>
-            <%= contributor.name %>さん
-        <% end %>
-    </p>
-    <p class = "right headerText">
-        投稿日：<%= @attraction.time.strftime('%Y-%m-%d') %>
-    </p>
-</div>
-<p>
-    <b><%= @attraction.prefecture %>　</b>　
-    <b><% genres = @attraction.genre %>
-    <% tmp = genres.split('"').each_slice(2).map(&:last) %>
-    <% tmp.pop %>
-    <% tmp.each do |genre| %>
-        <%= genre %>
-    <% end %></b>
-</P>
-<p>
-    <h2>紹介文</h2>
-    <%= @attraction.text %>
-</P>
-    <h2>写真</h2>
-    <div id="photos">
-        <% if not @attraction.picture1.nil? %>
-            <%= image_tag "/get_picture1/#{@attraction.id}", class: "photo" %>
-        <% end %>
-        <% if not @attraction.picture2.nil? %>
-            <%= image_tag "/get_picture2/#{@attraction.id}", class: "photo" %>
-        <% end %>
-        <% if not @attraction.picture3.nil? %>
-            <%= image_tag "/get_picture3/#{@attraction.id}", class: "photo" %>
-        <% end %>
-        <% if not @attraction.picture4.nil? %>
-            <%= image_tag "/get_picture4/#{@attraction.id}", class: "photo" %>
-        <% end %>
-        <% if not @attraction.picture5.nil? %>
-            <%= image_tag "/get_picture5/#{@attraction.id}", class: "photo" %>
-        <% end %>
-        <% if not @attraction.picture6.nil? %>
-            <%= image_tag "/get_picture6/#{@attraction.id}", class: "photo" %>
-        <% end %>
-    </div>
-<p>
-    <h2>住所</h2>
-    <%= @attraction.address %>
-</P>
-<p>
-    <h2>営業日時</h2>
-    <%= @attraction.open_time %>
-</P>
-<p>
-    <h2>URL</h2>
-    <%= link_to "#{@attraction.url}", @attraction.url %>
-</P>
-<p>
-    <h2>お問合せ先</h2>
-    <%= @attraction.contact %>
-</P>
-<p class = "right">
-    <% if current_user and current_user.id == contributor.id %>
-        <%= link_to "編集", edit_attraction_path(@attraction.id) %>
-        <%= link_to '投稿を削除', attraction_path(@attraction) , method: :delete %>
+<div class = "showattraction">
+    <% if flash[:notice] %>
+        <%= flash[:notice] %>
     <% end %>
-</p>
-<br><br>
-<h1><%= "レビュー" %></h1>
-<hr>
-<% @review.each do |review| %>
+    
+    <% contributor = User.find_by(id: @attraction.user_id) %>
+    <h1><%= @attraction.name %></h1>
+    <h2>投稿者</h2>
     <div>
-        <% viewer = User.find(review.user_id) %>
-        <%= link_to user_path(viewer.name) do %>
-            <% if viewer.icon.nil? %>
-                <%= image_tag 'アイコン.jpg', class: "icon" %>
-            <% else %>
-                <%= image_tag "/get_image/#{viewer.id}", class: "icon" %>
+        <p class = "left">
+            <%= link_to user_path(contributor.name) do %>
+                <% if contributor.icon.nil? %>
+                    <%= image_tag 'アイコン.jpg', class: "icon" %>
+                  <% else %>
+                    <%= image_tag "/get_image/#{contributor.id}", class: "icon" %>
+                  <% end %>
+                <%= contributor.name %>さん
             <% end %>
-            <%= viewer.name %>さん
-        <% end %>
+        </p>
+        <p class = "right headerText">
+            投稿日：<%= @attraction.time.strftime('%Y-%m-%d') %>
+        </p>
     </div>
     <p>
-        <%= review.text %>
-    </p>
+        <b><%= @attraction.prefecture %>　</b>　
+        <b><% genres = @attraction.genre %>
+        <% tmp = genres.split('"').each_slice(2).map(&:last) %>
+        <% tmp.pop %>
+        <% tmp.each do |genre| %>
+            <%= genre %>
+        <% end %></b>
+    </P>
     <p>
-        投稿日：<%= review.time.strftime('%Y-%m-%d') %>
+        <h2>紹介文</h2>
+        <%= @attraction.text %>
+    </P>
+        <h2>写真</h2>
+        <div id="photos">
+            <% if not @attraction.picture1.nil? %>
+                <%= image_tag "/get_picture1/#{@attraction.id}", class: "photo" %>
+            <% end %>
+            <% if not @attraction.picture2.nil? %>
+                <%= image_tag "/get_picture2/#{@attraction.id}", class: "photo" %>
+            <% end %>
+            <% if not @attraction.picture3.nil? %>
+                <%= image_tag "/get_picture3/#{@attraction.id}", class: "photo" %>
+            <% end %>
+            <% if not @attraction.picture4.nil? %>
+                <%= image_tag "/get_picture4/#{@attraction.id}", class: "photo" %>
+            <% end %>
+            <% if not @attraction.picture5.nil? %>
+                <%= image_tag "/get_picture5/#{@attraction.id}", class: "photo" %>
+            <% end %>
+            <% if not @attraction.picture6.nil? %>
+                <%= image_tag "/get_picture6/#{@attraction.id}", class: "photo" %>
+            <% end %>
+        </div>
+    <p>
+        <h2>住所</h2>
+        <%= @attraction.address %>
+    </P>
+    <p>
+        <h2>営業日時</h2>
+        <%= @attraction.open_time %>
+    </P>
+    <p>
+        <h2>URL</h2>
+        <%= link_to "#{@attraction.url}", @attraction.url %>
+    </P>
+    <p>
+        <h2>お問合せ先</h2>
+        <%= @attraction.contact %>
+    </P>
+    <p class = "right">
+        <% if current_user and current_user.id == contributor.id %>
+            <%= link_to "編集", edit_attraction_path(@attraction.id) %>
+            <%= link_to '投稿を削除', attraction_path(@attraction) , method: :delete %>
+        <% end %>
     </p>
+    <br><br>
+    <h1><%= "レビュー" %></h1>
     <hr>
-<% end %>
-<br>
-<% if session[:login_uid] %>
-    <%= link_to "レビューを投稿する", new_review_path(attraction_id:  @attraction.id, user_id: User.find_by(name: session[:login_uid]).id) %>
-<% else %>
-    ログインするとレビューが書けます
-<% end %>
-<br><br><br>　
+    <% @review.each do |review| %>
+        <div>
+            <% viewer = User.find(review.user_id) %>
+            <%= link_to user_path(viewer.name) do %>
+                <% if viewer.icon.nil? %>
+                    <%= image_tag 'アイコン.jpg', class: "icon" %>
+                <% else %>
+                    <%= image_tag "/get_image/#{viewer.id}", class: "icon" %>
+                <% end %>
+                <%= viewer.name %>さん
+            <% end %>
+        </div>
+        <p>
+            <%= review.text %>
+        </p>
+        <p>
+            投稿日：<%= review.time.strftime('%Y-%m-%d') %>
+        </p>
+        <hr>
+    <% end %>
+    <br>
+    <% if session[:login_uid] %>
+        <%= link_to "レビューを投稿する", new_review_path(attraction_id:  @attraction.id, user_id: User.find_by(name: session[:login_uid]).id) %>
+    <% else %>
+        ログインするとレビューが書けます
+    <% end %>
+    <br><br><br>　
+</div>

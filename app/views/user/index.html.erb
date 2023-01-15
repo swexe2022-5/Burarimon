@@ -1,12 +1,14 @@
-<% if flash[:notice] %>
-    <%= flash[:notice] %>
-<% end %>
-<h1>ログイン</h1>
-<%= form_tag '/user/login', method: :post do %>
-    <%= label_tag :uid, 'ユーザー名：' %>
-    <%= text_field_tag :uid %>
-    <p><%= label_tag :pass, 'パスワード：' %>
-    <%= password_field_tag :pass %></p>
-    <%= submit_tag 'ログイン' %>
-<% end %><br>
-<%= link_to '新規登録', new_user_path %>
+<div id = "loginform">
+    <% if flash[:notice] %>
+        <%= flash[:notice] %>
+    <% end %>
+    <h1>ログイン</h1>
+    <%= form_tag '/user/login', method: :post do %>
+        <%= label_tag :uid, 'ユーザー名：' %>
+        <%= text_field_tag :uid %>
+        <p><%= label_tag :pass, 'パスワード：' %>
+        <%= password_field_tag :pass %></p>
+        <%= submit_tag 'ログイン' %>
+    <% end %><br>
+    <%= link_to '新規登録', new_user_path %>
+</div>

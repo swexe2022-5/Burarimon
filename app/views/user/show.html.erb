@@ -1,22 +1,24 @@
-<meta charset="utf-8" />
-
-<% if flash[:notice] %>
-    <%= flash[:notice] %>
-<% end %>
-
-<p>
-    <% if @user.icon.nil? %>
-            <%= image_tag 'アイコン.jpg', id: "icon_profile" %>
-          <% else %>
-            <%= image_tag "/get_image/#{@user.id}", id: "icon_profile" %>
-          <% end %>
-</p>
-<h1><%= @user.name %></h1>
-<h3>プロフィール文</h3>
-<%= @user.profile %><br><br>
-<% if session[:login_uid] == @user.name%>
-    <%= link_to "戻る", root_path %>
-    <%= link_to "編集", edit_user_path(@user.name) %>
-<% else %>
-    <%= link_to "戻る", :back %>
-<% end %>
+<div class = "showuser">
+    <meta charset="utf-8" />
+    <% if flash[:notice] %>
+        <%= flash[:notice] %>
+    <% end %>
+    <p>
+        <% if @user.icon.nil? %>
+                <%= image_tag 'アイコン.jpg', id: "icon_profile" %>
+              <% else %>
+                <%= image_tag "/get_image/#{@user.id}", id: "icon_profile" %>
+              <% end %>
+    </p>
+    <h1><%= @user.name %></h1>
+    <h3>プロフィール文</h3>
+    <%= @user.profile %><br><br>
+    <% if session[:login_uid] == @user.name%>
+        <%= link_to "戻る", root_path %>
+        <%= link_to "編集", edit_user_path(@user.name) %>
+        <br><%= link_to 'ログアウト', user_index_path %>
+    <% else %>
+        <%= link_to "戻る", :back %>
+    <% end %>
+   
+<div>

@@ -1,42 +1,70 @@
-#header{
-    height: 70px;
+* {
+    text-decoration: none;
 }
 
-.headerText{
-   padding-top: 34px;
-}
-
-#content{
-    width: 980px;
+#loginform{
+    width: 300px;
     margin: 0 auto;
 }
 
-#IndexPage{
-    width: 700px;                /*要修正*/
+.attractionName {
+    color: #000000;
+}
+
+.attractionform{
+    width: 600px;
     margin: 0 auto;
 }
 
-.index_content{
-    
+.showuser{
+    width: 800px;
+    margin: 0 auto;
+}
+
+.reviewform{
+    width: 500px;
+    margin: 0 auto;
+}
+
+#header {
+    height: 150px;
+}
+
+.headerText {
+    padding-top: 34px;
+}
+
+#content {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#IndexPage {
+    width: 700px;
+    /*要修正*/
+    margin: 0 auto;
+}
+
+.index_content {
     border: 3px solid #000000;
 }
 
-.left{
+.left {
     text-align: left;
     float: left;
     margin-top: 0px;
 }
 
 .right {
-   text-align: right; 
+    text-align: right;
 }
 
 #photos {
     display: flex;
-    overflow-x:scroll;
+    overflow-x: scroll;
 }
 
-#photos img{
+#photos img {
     width: auto;
     height: 400px;
     margin: 0 30px;
@@ -44,27 +72,26 @@
 }
 
 
-#photo_edit img{
+#photo_edit img {
     width: auto;
     height: 250px;
     border: 3px solid #000000;
 }
 
-.icon{
+.icon {
     width: 50px;
     height: 50px;
     object-fit: contain;
 }
 
-#icon_profile{
+#icon_profile {
     width: 150px;
     height: 150px;
     object-fit: contain;
 }
 
-.index_photo{
+.index_photo {
     width: auto;
     height: 300px;
-    text-align : center
+    text-align: center
 }
-

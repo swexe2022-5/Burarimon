@@ -74,6 +74,11 @@
             <h2><%= f.label :contact, 'お問い合わせ先' %></h2>
             <%= f.text_field :contact %>
         </p>
-        <%= f.submit '投稿' %>
+        <p>
+            <%= f.submit '投稿' %>
+        </p>
+        <p>
+            <%= link_to '戻る', root_path %>
+        </p>    
     <% end %>
 </div>

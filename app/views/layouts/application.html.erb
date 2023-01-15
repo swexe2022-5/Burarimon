@@ -11,6 +11,7 @@
 
   <body>
     <div id="header">
+      <h1>ぶらりもん</h1>
       <p class = "left">
         <% if session[:login_uid] %>
               <%= link_to user_path(current_user.name) do %>
@@ -21,7 +22,6 @@
                 <% end %>
                   <%= current_user.name %>さん(プロフィールへ)
               <% end %>
-            　<%= link_to 'ログアウト', user_index_path %>
         <% else %>
             <%= link_to 'ログイン', user_index_path %>
         <% end %>

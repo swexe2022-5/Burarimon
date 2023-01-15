@@ -1,31 +1,33 @@
-<% if flash[:error].present? %>
-<h3>エラーがあります。</h3>
-<ul>
-    <% flash[:error].each do |msg| %>
-      <li><%= msg %></li>
+<div id = "loginform">
+    <% if flash[:error].present? %>
+    <h3>エラーがあります。</h3>
+    <ul>
+        <% flash[:error].each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+    </ul>
     <% end %>
-</ul>
-<% end %>
-<h1>ユーザー情報変更</h1>
-<%= form_for @user , url: {action: :update} do |f| %>
-    <p>
-        <h2><%= f.label :name, 'ユーザー名' %></h2>
-        <%= f.text_field :name %>
-    </p>
-    <p>
-        <h2><%= f.label :profile, 'プロフィール文' %></h2>
-        <%= f.text_area :profile ,size: "60x5"%>
-    </p>
-    <p>
-        <h2><%= f.label :icon, 'アイコン' %></h2>
-        <%= f.file_field :icon %>
-    </p>
-    <p>
-        <h2><%= f.label :profile, 'ユーザー' %></h2>
-        <%= f.radio_button :owner, :false, {:checked => true} %>
-        <%= f.label :owner, "一般ユーザー", {value: false} %>
-      　<%= f.radio_button :owner, :true %>
-        <%= f.label :owner, "オーナー", {value: false} %>
-    </p>
-    <%= f.submit '決定' %>
-<% end %>
+    <h1>ユーザー情報変更</h1>
+    <%= form_for @user , url: {action: :update} do |f| %>
+        <p>
+            <h2><%= f.label :name, 'ユーザー名' %></h2>
+            <%= f.text_field :name %>
+        </p>
+        <p>
+            <h2><%= f.label :profile, 'プロフィール文' %></h2>
+            <%= f.text_area :profile ,size: "60x5"%>
+        </p>
+        <p>
+            <h2><%= f.label :icon, 'アイコン' %></h2>
+            <%= f.file_field :icon %>
+        </p>
+        <p>
+            <h2><%= f.label :profile, 'ユーザー' %></h2>
+            <%= f.radio_button :owner, :false, {:checked => true} %>
+            <%= f.label :owner, "一般ユーザー", {value: false} %>
+          　<%= f.radio_button :owner, :true %>
+            <%= f.label :owner, "オーナー", {value: false} %>
+        </p>
+        <%= f.submit '決定' %>
+    <% end %>
+</div>

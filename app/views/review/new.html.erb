@@ -1,18 +1,20 @@
-<% if @review.errors.present? %>
-<h3>エラーがあります。</h3>
-<ul>
-    <% @review.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<div class = "reviewform">
+    <% if @review.errors.present? %>
+    <h3>エラーがあります。</h3>
+    <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+    </ul>
     <% end %>
-</ul>
-<% end %>
-<h1>レビュー投稿</h1>
-<%= form_for @review, url: {action: :create } do |f| %>
-    <p>
-        <h3><%= f.label :text, 'レビュー文' %></h3>
-        <%= f.text_area :text ,size: "60x15"%>
-        <%= f.hidden_field :attraction_id %>
-        <%= f.hidden_field :user_id %>
-    </p>
-    <%= f.submit '投稿' %>
-<% end %>
+    <h1>レビュー投稿</h1>
+    <%= form_for @review, url: {action: :create } do |f| %>
+        <p>
+            <h3><%= f.label :text, 'レビュー文' %></h3>
+            <%= f.text_area :text ,size: "60x15"%>
+            <%= f.hidden_field :attraction_id %>
+            <%= f.hidden_field :user_id %>
+        </p>
+        <%= f.submit '投稿' %>
+    <% end %>
+</div>

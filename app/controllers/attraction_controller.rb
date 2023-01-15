@@ -54,11 +54,12 @@ class AttractionController < ApplicationController
     end
     
     def new
-        @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物"]
+        @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物", "その他"]
         @attraction = Attraction.new(user_id: params[:user_id])
     end
     
     def create
+        @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物", "その他"]
         if params[:attraction][:picture1]
             pic1 = params[:attraction][:picture1].read
         else
@@ -95,9 +96,10 @@ class AttractionController < ApplicationController
         user_id: current_user.id, time: Time.current, picture1: pic1, picture2: pic2, 
         picture3: pic3, picture4: pic4, picture5: pic5, picture6: pic6)
         if @attraction.save
+            flash[:notice] = "観光地を投稿しました。"
             redirect_to root_path
         else
-            render new_attraction_path
+            render "new"
         end
     end
     
@@ -107,7 +109,7 @@ class AttractionController < ApplicationController
     end
     
     def edit
-        @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物"]
+        @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物", "その他"]
         @attraction = Attraction.find(params[:id])
     end
     
@@ -161,8 +163,10 @@ class AttractionController < ApplicationController
         open_time: params[:attraction][:open_time], contact: params[:attraction][:contact], address: params[:attraction][:address], 
         user_id: params[:attraction][:user_id], time: Time.current, picture1: pic1, picture2: pic2, 
         picture3: pic3, picture4: pic4, picture5: pic5, picture6: pic6)
+            flash[:notice] = "観光地情報を更新しました。"
             redirect_to attraction_path
         else
+            flash[:error] = @attraction.errors.full_messages
             render edit_attraction_path
         end
     end
@@ -177,7 +181,7 @@ class AttractionController < ApplicationController
         if params[:prefecture] == "全国"
             params[:prefecture] = nil
         end
-        @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物"]
+        @genres = ["レジャー", "文化・歴史", "自然", "芸術", "ショッピング", "温泉", "生き物", "その他"]
         genres_list = []
         @genres.each do |genre|
             if params[:genres][genre] == ["0", "1"]

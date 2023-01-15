@@ -1,4 +1,12 @@
-<h1>新規投稿</h1>
+<h1>新規投稿</h1
+<% if @attraction.errors.present? %>
+<h3>エラーがあります。</h3>
+<ul>
+    <% @attraction.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+</ul>
+<% end %>
 <%= form_for @attraction, url: {action: :create } do |f| %>
     紹介文・画像2~3・URL以外は全て必須項目。<br>
     <p>
@@ -25,6 +33,8 @@
         <%= f.label :genre, "温泉" %>
         <%= f.check_box :genre, {multiple: true, checked: false}, @genres[6], nil %>
         <%= f.label :genre, "生き物" %>
+        <%= f.check_box :genre, {multiple: true, checked: false}, @genres[7], nil %>
+        <%= f.label :genre, "その他" %>
     </p>
     <p>
         <h2><%= f.label :picture1, '画像1' %></h2>

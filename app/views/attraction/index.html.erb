@@ -1,8 +1,7 @@
-<% if flash[:notice] %>
-    <%= flash[:notice] %>
-<% end %>
-
 <div id = "IndexPage">
+    <% if flash[:notice] %>
+        <%= flash[:notice] %>
+    <% end %>
     <div>
         <p class = "left">
             <% if session[:login_uid] %>

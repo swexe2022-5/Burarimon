@@ -105,7 +105,7 @@ class AttractionController < ApplicationController
     
     def show
         @attraction = Attraction.find(params[:id])
-        @review = Review.where(attraction_id: params[:id])
+        @review = Review.where(attraction_id: params[:id]).order(id: "DESC")
     end
     
     def edit
